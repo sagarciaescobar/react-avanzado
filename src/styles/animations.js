@@ -15,3 +15,17 @@ to{
 export const fadeIn = ({ time = '1s', type = 'ease' } = {}) => (
   css`animation: ${time} ${fadeInKeyframes} ${type};`
 )
+
+const moveInKeyframes = keyframes`
+from {
+  top: -100px;
+}
+
+to{
+  top: -20px;
+}
+`
+
+export const moveIn = () => (
+  css`animation: 1s ${moveInKeyframes} ease;`
+)

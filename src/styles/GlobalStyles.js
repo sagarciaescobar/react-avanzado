@@ -16,6 +16,7 @@ html {
 
   ul {
     list-style: none;
+    padding-inline-start: unset;
   }
 
   button {
