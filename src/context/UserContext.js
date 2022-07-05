@@ -12,6 +12,10 @@ export const UserProvider = ({ children }) => {
     activateAuth: (token) => {
       setAuth(true)
       window.sessionStorage.setItem('token', token)
+    },
+    removeAuth: () => {
+      setAuth(false)
+      window.sessionStorage.removeItem('token')
     }
   }
   return (

@@ -19,7 +19,7 @@ export const NoRegisterUser = () => {
   const onLogin = (input) => {
     login({ variables: { input } })
       .then(({ data }) => {
-        activateAuth(data.signup)
+        activateAuth(data.login)
       })
       .catch(e => console.log(e))
   }

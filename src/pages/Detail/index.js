@@ -1,12 +1,17 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Layout } from '../../components/Layout'
 import { PhotoCardWithQuery } from '../../container/PhotoCardWithQuery'
 
 export const Detail = () => {
   const [searchParams] = useSearchParams()
-  console.log(searchParams)
+  const id = searchParams.get('id')
 
   return (
-    <PhotoCardWithQuery id={searchParams.get('id')} />
+    <>
+      <Layout title={`fotografia ${id}`}>
+        <PhotoCardWithQuery id={id} />
+      </Layout>
+    </>
   )
 }
