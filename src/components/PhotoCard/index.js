@@ -1,27 +1,24 @@
 import React from 'react'
 import { ImgWrapper, Img, Article } from './STYLES.JS'
-import { useLocalStoreage } from '../../hooks/useLocalStoreage'
 import { useNearScreen } from '../../hooks/useNearScreen'
 
 import { TextBlock, RectShape, RoundShape } from 'react-placeholder/lib/placeholders'
 import { FavButton } from '../FavButton'
+import { Link } from 'react-router-dom'
 import { useMuationToogleLike } from '../../hooks/useMuationToogleLike'
 
 const DEFAULT_IMG = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
-  const key = `liked-${id}`
-  const [liked, setLiked] = useLocalStoreage(key, false)
+export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMG }) => {
   const [show, ele] = useNearScreen()
   const { mutation } = useMuationToogleLike()
 
   const handleFavClick = () => {
-    !liked && mutation({
+    mutation({
       variables: {
         input: { id }
       }
     })
-    setLiked(!liked)
   }
 
   return (
@@ -29,11 +26,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG }) => {
       {
         show &&
           <>
-            <a href={`?detail=${id}`}>
+            <Link to={`/detail?id=${id}`}>
               <ImgWrapper>
                 <Img src={src} />
               </ImgWrapper>
-            </a>
+            </Link>
             <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
           </>
       }

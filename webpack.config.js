@@ -4,7 +4,13 @@ module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   output: {
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
