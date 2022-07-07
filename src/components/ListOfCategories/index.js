@@ -1,24 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Category, CategorySkeleton } from '../Category'
+import { useCategoryData } from '../../hooks/useCategoryData'
 import { List, Item } from './styles'
 
-function useCategoryData () {
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    fetch('https://petgram-server-sergio-opal.vercel.app/categories')
-      .then(res => res.json())
-      .then(response => {
-        setCategories(response)
-        setLoading(false)
-      })
-  }, [])
-  return { categories, loading }
-}
-
-const ListOfCategoriesComponent = () => {
+export const ListOfCategoriesComponent = () => {
   const [showFixed, setShowFixed] = useState(false)
   const { categories, loading } = useCategoryData()
 
@@ -57,5 +42,3 @@ const ListOfCategoriesComponent = () => {
     </>
   )
 }
-
-export const ListOfCategories = React.memo(ListOfCategoriesComponent)

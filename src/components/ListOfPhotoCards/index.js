@@ -1,6 +1,7 @@
 import React from 'react'
 import { PhotoCard } from '../PhotoCard'
 import { usePhotos } from '../../hooks/usePhotos'
+import PropTypes from 'prop-types'
 
 export const ListOfPhotoCards = ({ categoryId = 1 }) => {
   const { loading, error, data } = usePhotos(categoryId)
@@ -20,4 +21,8 @@ export const ListOfPhotoCards = ({ categoryId = 1 }) => {
       }
     </ul>
   )
+}
+
+ListOfPhotoCards.propTypes = {
+  categoryId: PropTypes.number
 }

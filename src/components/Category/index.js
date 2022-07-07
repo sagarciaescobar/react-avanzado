@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Image, ContainerCategorySkeleton, CategoryImage, CategoryTitle } from './styles'
+import PropTypes from 'prop-types'
 
 const DEFAULT_IMG = 'https://imgur.com/dJa0Hpl.jpg'
 
@@ -17,4 +18,12 @@ export const CategorySkeleton = props => {
       <CategoryTitle light={props.light} />
     </ContainerCategorySkeleton>
   )
+}
+Category.propTypes = {
+  cover: PropTypes.string.isRequired,
+  emoji: PropTypes.string.isRequired
+}
+
+CategorySkeleton.propTypes = {
+  light: PropTypes.bool
 }

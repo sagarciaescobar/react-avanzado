@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import { useQuery, gql } from '@apollo/client'
 import { PhotoCard, PhotoCardSkeleton } from '../components/PhotoCard'
 
@@ -32,4 +34,8 @@ export const PhotoCardWithQuery = ({ id }) => {
   return (
     <PhotoCard {...data.photo} />
   )
+}
+
+PhotoCardWithQuery.propTypes = {
+  id: PropTypes.number
 }

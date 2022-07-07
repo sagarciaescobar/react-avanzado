@@ -1,6 +1,7 @@
 import React from 'react'
 import { ImgWrapper, Img, Article } from './STYLES.JS'
 import { useNearScreen } from '../../hooks/useNearScreen'
+import PropTypes from 'prop-types'
 
 import { TextBlock, RectShape, RoundShape } from 'react-placeholder/lib/placeholders'
 import { FavButton } from '../FavButton'
@@ -36,6 +37,13 @@ export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMG }) => {
       }
     </Article>
   )
+}
+
+PhotoCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  liked: PropTypes.bool,
+  likes: PropTypes.number.isRequired,
+  src: PropTypes.string.isRequired
 }
 
 export const PhotoCardSkeleton = () => (
