@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImgWrapper, Img, Article } from './STYLES.JS'
+import { ImgWrapper, Img, Article } from './styles'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import PropTypes from 'prop-types'
 

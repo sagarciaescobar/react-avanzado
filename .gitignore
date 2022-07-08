@@ -5,3 +5,4 @@ package-lock.json
 .prettierrc
 .pre-commit-config.yaml
 .DS_Store
+.vercel
