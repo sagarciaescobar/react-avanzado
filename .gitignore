@@ -3,6 +3,5 @@ node_modules/
 ./package-lock.json
 package-lock.json
 .prettierrc
-vercel.json
 .pre-commit-config.yaml
 .DS_Store
